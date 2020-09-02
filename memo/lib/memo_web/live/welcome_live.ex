@@ -45,4 +45,8 @@ defmodule MemoWeb.WelcomeLive do
   def handle_event("next", _mete, socket) do
     {:noreply, next(socket)}
   end
+
+  def handle_event("choose", _mete, socket) do
+    {:noreply, push_redirect(socket, to: "/game/#{socket.assigns.passage.id}")}
+  end
 end
